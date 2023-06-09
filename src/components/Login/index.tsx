@@ -1,6 +1,6 @@
 import Nav from '../Nav'
 
-const Login = () => {
+const Login:React.FC = () => {
 
   return (
     <>
