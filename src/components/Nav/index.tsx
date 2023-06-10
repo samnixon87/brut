@@ -1,8 +1,12 @@
 import { redirectToAuthCodeFlow } from '../../auth'
 
-const Nav = () => {
+interface IProps {
+  profile?: string;
+}
 
-  const clientId = import.meta.env.VITE_CLIENT_ID;
+const Nav:React.FC<IProps> = ( { profile }) => {
+
+  const clientId:string = import.meta.env.VITE_CLIENT_ID;
 
   const handleClick = async () => {
     await redirectToAuthCodeFlow(clientId)
@@ -11,9 +15,13 @@ const Nav = () => {
   return (
     <>
       <h1>Brut</h1>
-      <button onClick={handleClick}>
-        Login
-      </button>
+      {!profile ? (
+        <button onClick={handleClick}>
+          Login
+        </button>
+      ) : (
+        <img src={profile}></img>
+      )}
     </>
   )
 }

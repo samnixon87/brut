@@ -5,11 +5,13 @@ export async function redirectToAuthCodeFlow(clientId: string) {
 
   localStorage.setItem("verifier", verifier);
 
+  const scope = "user-read-private user-read-email "
+
   const params = new URLSearchParams();
   params.append("client_id", clientId);
   params.append("response_type", "code");
   params.append("redirect_uri", "http://localhost:5173/callback");
-  params.append("scope", "user-read-private user-read-email");
+  params.append("scope", scope);
   params.append("code_challenge_method", "S256");
   params.append("code_challenge", challenge);
 
