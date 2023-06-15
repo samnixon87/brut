@@ -5,7 +5,7 @@ export async function redirectToAuthCodeFlow(clientId: string) {
 
   localStorage.setItem("verifier", verifier);
 
-  const scope = "user-read-private user-read-email "
+  const scope = "user-read-private user-read-email user-modify-playback-state user-read-playback-state user-read-currently-playing user-read-recently-played user-top-read playlist-read-private user-library-read streaming"
 
   const params = new URLSearchParams();
   params.append("client_id", clientId);
